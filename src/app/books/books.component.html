@@ -1,10 +1,10 @@
-<h2>Programing Books List...!</h2>
-<button (click)="handleClick()" (mouseover)="handleClick()" [disabled]="isShowing">Show Books</button>
+<h2>Programing Books List</h2>
 
-<ul *ngFor="let item of items">
-    <img [src]="item.bImg" 
-    [alt] ="item.bName" width="100px">
-    <li>{{ item.bName }} by {{ item.bAuthor }}</li>
+<ul *ngIf="isShowing">
+    <ng-container *ngFor="let singlebook of books; let i = index">
+        <!-- <app-book (emitBook)="addToBasket($event)" [book]='singlebook'></app-book> -->
+        <app-book [book]='singlebook'></app-book>
+    </ng-container>
 </ul>
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../types/book';
+import { BooksServiceService } from './books-service.service';
 
 @Component({
   selector: 'app-books',
@@ -7,36 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private booksService: BooksServiceService) {
+    console.log('constructor-Init')
+  }
 
   ngOnInit(): void {
+    console.log('ng-Init');
+    this.books = this.booksService.getBooks()
   }
 
-  name:string = "Clean Code";
-  author:string = "Roberet C Martin"
-  src:string ="https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg"
+  books: Book[] = [];
 
-  items = [{
-    bName:"Programic Coder",
-    bAuthor: "Pearson",
-    bImg: "https://images-na.ssl-images-amazon.com/images/I/51W1sBPO7tL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg"
-  },
-  {
-    bName:"Clean Code",
-    bAuthor: "Roberet C Martin",
-    bImg: "https://images-na.ssl-images-amazon.com/images/I/41xShlnTZTL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg"
-  },
-  {
-    bName:"Righting Software",
-    bAuthor: "Juval Löwy",
-    bImg: "https://images-na.ssl-images-amazon.com/images/I/41rMKQhfK8L.jpg"
-  },
-  ]
+  isShowing: boolean = true;
 
-  isShowing:boolean = false;
+  //   handleInput(event:any) {
+  //     console.log(event.target.value);
+  //     this.inputField = event.target.value;
+  //   }
 
-  handleClick() {
-    alert('I am working')
-    this.isShowing = true;
-  }
+  // addToBasket(event:any) {
+  //   console.log('Bucket contains :')
+  //   console.log(event)
+  // } 
+
 }

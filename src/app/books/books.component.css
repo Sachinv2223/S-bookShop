@@ -1,0 +1,17 @@
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* li{
+    list-style: none;
+    text-overflow: ellipsis;
+    width: 25%;
+    text-align: center;
+} */
+
+h2{
+    text-align: center;
+    color: #49274A;
+}  
