@@ -8,6 +8,7 @@ import { BooksModule } from "./books/books.module";
 import { BooksServiceService } from "./books/books-service.service";
 import { CartComponent } from './cart/cart.component';
 import { AppRoutingModule } from "./app-routing.module";
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
     declarations: [AppComponent, BooksComponent, BookComponent, CartComponent],
@@ -15,7 +16,8 @@ import { AppRoutingModule } from "./app-routing.module";
         BrowserModule,
         FormsModule,
         BooksModule,
-        AppRoutingModule           
+        AppRoutingModule,
+        AuthModule           
     ],
     bootstrap: [AppComponent],
     providers: [BooksServiceService]

@@ -1,4 +1,4 @@
-ul{
+/* ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -10,8 +10,3 @@ ul{
     width: 25%;
     text-align: center;
 } */
-
-h2{
-    text-align: center;
-    color: #49274A;
-}  

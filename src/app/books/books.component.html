@@ -1,9 +1,9 @@
-<h2>Programing Books List</h2>
+<h2 class="font-bold pb-2 text-center text-purple-900 text-2xl my-5">Programing Books List</h2>
 
-<ul *ngIf="isShowing">
+<ul *ngIf="isShowing" class="flex flex-wrap justify-center">
     <ng-container *ngFor="let singlebook of books; let i = index">
         <!-- <app-book (emitBook)="addToBasket($event)" [book]='singlebook'></app-book> -->
-        <app-book [book]='singlebook'></app-book>
+        <app-book [book]='singlebook' class="w-1/2 px-5 py-5 text-center"></app-book>
     </ng-container>
 </ul>
 

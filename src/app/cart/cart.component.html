@@ -1,8 +1,8 @@
 <h2>Your Cart</h2>
 
 <div *ngIf="getCart().length > 0">
-    <div *ngFor="let book of getCart()">
-        {{ book.bName }}
+    <div *ngFor="let book of getCart(); let i = index;">
+        <span class="my-4 text-2xl"> {{i}}. {{ book.bName }} </span>
     </div>
 </div>
 
