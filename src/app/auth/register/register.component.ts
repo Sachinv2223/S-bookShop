@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { registrationForm } from 'src/app/types/regDetails';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,24 +24,20 @@ export class RegisterComponent implements OnInit {
 
   isPasswordMatched: boolean = false;
 
+
   submitReg() {
     // console.log(this.regForm)
     if (this.regForm.password === this.regForm.confirmPassword) {
 
-      const auth = getAuth();
-      createUserWithEmailAndPassword(auth, this.regForm.email, this.regForm.password)
-        .then((userCredential) => {
-          console.log(userCredential)
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
-        });
+      this.authService.register(this.regForm);
     }
     else {
-
+      alert('Password mismatched  :(')
     }
+  }
+
+  isLoading() {
+    return this.authService.isLoading;
   }
 
 }
